@@ -1,0 +1,37 @@
+{
+  "name": "engine-lp4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "all": "yarn build && yarn start",
+    "start": "node ./dist/src",
+    "clean": "gts clean",
+    "build": "yarn clean && tsc && yarn copy-files",
+    "dev": "nodemon --watch './**/*.ts' --watch './**/*.akt' --exec yarn all",
+    "copy-files": "copyfiles -u 1  ./src/assets/**/* ./dist/src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.17.15",
+    "@types/yargs": "^17.0.2",
+    "copyfiles": "^2.4.1",
+    "gts": "^3.1.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "@types/args": "^3.0.1",
+    "@types/mustache": "^4.1.2",
+    "args": "^5.0.1",
+    "commander-ts": "^0.1.5",
+    "dotenv": "^10.0.0",
+    "jsonpath": "^1.1.1",
+    "mustache": "^4.2.0",
+    "pluralize": "^8.0.0",
+    "ts-command-line-args": "^2.1.0",
+    "yargs": "^17.1.1"
+  }
+}
