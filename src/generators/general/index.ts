@@ -1,5 +1,6 @@
 import {Render} from '../../utils/render/Render';
 import {loadJSON} from '../../utils/LoaderJSON';
+import {processExpression} from '../../utils/ProcessExpression';
 import {jsonFind} from '../../utils/JsonFind';
 import {AppType} from '../../types/AppType';
 import {EngineTemplateType} from '../../types/EngineTemplateType';
@@ -16,8 +17,7 @@ const prepareOutputPath = (
   filePath = filePath.replace('${OUTPUT_PATH}', '');
   template.output.params.forEach(param => {
     const from = param.from;
-    const to = jsonFind(data, param.to);
-    filePath = filePath.replace(from, String(to));
+    filePath = filePath.replace(from, processExpression(data, param.to));
   });
   return path.join(outputPath, filePath);
 };

@@ -8,6 +8,7 @@ export interface EndpointType {
   isCRUDCreateOne?: boolean;
   isCRUDDeleteOne?: boolean;
   isCRUDUpdateOne?: boolean;
+  roleAuth?: string;
   params: [
     {
       param: string;
